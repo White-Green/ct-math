@@ -3,6 +3,8 @@ use std::ops::{Add, Index, IndexMut, Mul};
 use crate::type_integer::{Integer, MayBeEquals, StaticInteger};
 
 /// 静的または動的なサイズを持つ行列
+/// 演算においてはできるだけ静的なサイズを保つ
+/// 動的サイズで演算が定義されない場合panic
 pub struct PartialMatrix<Data, Rows: Integer, Cols: Integer> {
     data: Vec<Data>,
     rows: Rows,
