@@ -10,7 +10,7 @@ use ct_math::matrix::ct_matrix::CTMatrix;
 use ct_math::matrix::normal_matrix::NormalMatrix;
 use ct_math::matrix::partial_dynamic_matrix::PartialMatrix;
 use ct_math::type_boolean::{F, T};
-use ct_math::type_integer::{Int32, Integer, StaticInteger};
+use ct_math::type_integer::{Int32, StaticInteger};
 
 fn main() {
     for i in 1..=1000 {

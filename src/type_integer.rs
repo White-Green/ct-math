@@ -31,10 +31,10 @@ pub trait MayBeEquals<RHS> {
 
 impl<A: StaticInteger, B: StaticInteger> MayBeEquals<B> for A {
     type EffortStatic = A;
-    fn equals(&self, rhs: &B) -> bool {
+    fn equals(&self, _rhs: &B) -> bool {
         true
     }
-    fn next_value(&self, rhs: &B) -> Self::EffortStatic {
+    fn next_value(&self, _rhs: &B) -> Self::EffortStatic {
         self.clone()
     }
 }
@@ -44,14 +44,14 @@ impl<A: StaticInteger> MayBeEquals<usize> for A {
     fn equals(&self, rhs: &usize) -> bool {
         Self::VALUE == *rhs
     }
-    fn next_value(&self, rhs: &usize) -> Self::EffortStatic {
+    fn next_value(&self, _rhs: &usize) -> Self::EffortStatic {
         self.clone()
     }
 }
 
 impl<B: StaticInteger> MayBeEquals<B> for usize {
     type EffortStatic = B;
-    fn equals(&self, rhs: &B) -> bool {
+    fn equals(&self, _rhs: &B) -> bool {
         *self == B::VALUE
     }
     fn next_value(&self, rhs: &B) -> Self::EffortStatic {
@@ -64,7 +64,7 @@ impl MayBeEquals<usize> for usize {
     fn equals(&self, rhs: &usize) -> bool {
         self == rhs
     }
-    fn next_value(&self, rhs: &usize) -> Self::EffortStatic {
+    fn next_value(&self, _rhs: &usize) -> Self::EffortStatic {
         self.clone()
     }
 }

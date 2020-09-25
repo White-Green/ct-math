@@ -51,7 +51,7 @@ impl<Rows: Integer, Cols: Integer> PartialMatrix<(), Rows, Cols> {
         }
     }
     pub fn filled_by<D: Clone>(rows: Rows, cols: Cols, default: D) -> PartialMatrix<D, Rows, Cols> {
-        let mut data = vec![default; rows.value() * cols.value()];
+        let data = vec![default; rows.value() * cols.value()];
         PartialMatrix {
             data,
             rows,
