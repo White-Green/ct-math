@@ -1,5 +1,6 @@
 use std::ops::{Add, Mul};
 
+/// 動的なサイズを持つ行列
 #[derive(Clone, Debug)]
 pub struct NormalMatrix {
     data: Vec<f64>,
@@ -97,8 +98,11 @@ impl Add for NormalMatrix
         assert_eq!(self.cols, rhs.cols);
 
         let mut result = NormalMatrix::new(self.rows, self.cols);
-        for i in 0..self.rows * self.cols {
-            result.data[i] = self.data[i] + rhs.data[i];
+        unsafe {
+            for i in 0..self.rows * self.cols {
+                // result.data[i] = self.data[i] + rhs.data[i];
+                *result.data.get_unchecked_mut(i) = self.data.get_unchecked(i) + rhs.data.get_unchecked(i);
+            }
         }
         result
     }

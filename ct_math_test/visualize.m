@@ -12,14 +12,14 @@ msmedians=splitapply(@median,mul_static.time,mgroup);
 fadd = figure("Name","Add","NumberTitle","off");
 fmul = figure("Name","Mul","NumberTitle","off");
 figure(fadd);
-semilogx(asizes,asmedians./admedians.*100,"-r");
-axis([-inf inf 0 100])
+semilogx(asizes,asmedians./admedians.*100,"-or");
+axis([0 max(asizes) 0 100])
 title("動的サイズ行列に対する静的サイズ行列の処理時間割合 和")
 xlabel("行列サイズ")
 ylabel("処理時間割合[%]")
 figure(fmul);
-semilogx(msizes,msmedians./mdmedians.*100,"-r");
-axis([-inf inf 0 100])
+semilogx(msizes,msmedians./mdmedians.*100,"-or");
+axis([0 max(asizes) 0 100])
 title("動的サイズ行列に対する静的サイズ行列の処理時間割合 積")
 xlabel("行列サイズ")
 ylabel("処理時間割合[%]")
