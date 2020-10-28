@@ -1,6 +1,6 @@
 use std::ops::{Add, Index, IndexMut, Mul};
 
-use crate::type_integer::{Integer, MayBeEquals, StaticInteger};
+use crate::type_integer::{Integer, MayBeEquals};
 
 /// 静的または動的なサイズを持つ行列
 /// 演算においてはできるだけ静的なサイズを保つ

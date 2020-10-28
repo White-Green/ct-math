@@ -32,7 +32,7 @@ pub trait MayBeEquals<RHS> {
 impl<A: StaticInteger, B: StaticInteger> MayBeEquals<B> for A {
     type EffortStatic = A;
     fn equals(&self, _rhs: &B) -> bool {
-        true
+        A::VALUE == B::VALUE
     }
     fn next_value(&self, _rhs: &B) -> Self::EffortStatic {
         self.clone()
