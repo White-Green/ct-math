@@ -24,7 +24,7 @@ pub trait StaticInteger: Integer {
 }
 
 pub trait MayBeEquals<RHS> {
-    type EffortStatic;
+    type EffortStatic: Integer;
     fn equals(&self, rhs: &RHS) -> bool;
     fn next_value(&self, rhs: &RHS) -> Self::EffortStatic;
 }
